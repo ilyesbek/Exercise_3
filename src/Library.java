@@ -19,17 +19,27 @@ public class Library {
             book.display();
         }
     }
-
-    public void getBookByISBN() {
-
+    //Method to locate books by their ISBN
+    public Book getBookByISBN(String isbn) {
+        for(Book book:bookList) {
+            if (isbn.equals(book.getIsbn())) {
+                return book;
+            }
+        }
+        return null;
     }
 
 
-    public void getAllBooksInRoom() {
+    public void getAllBooksInRoom(int room) {
+        for(Book book:bookList){
 
+        }
     }
 
-    public void getAllBooksInRow() {
+    public void getAllBooksInRow(int room, int row) {
+        for(Book book:bookList){
+
+        }
 
     }
 
