@@ -29,11 +29,14 @@ public class Library {
         return null;
     }
 
-
-    public void getAllBooksInRoom(int room) {
+    //Method to get the book from the room
+    public Book getAllBooksInRoom(int room) {
         for(Book book:bookList){
-
+            if(room == book.getRoom()){
+                return book;
+            }
         }
+        return null;
     }
 
     public void getAllBooksInRow(int room, int row) {
@@ -52,7 +55,9 @@ public class Library {
         library.addBook(new Book("9780735211308", "James Clear", "Atomic Habits", "Penguin Random House LLC", 2018));
         library.addBook(new Book("9781455586660", "Cal Newport", "Deep Work: Rules for Focused Success in a Distracted World", "Grand Central Publishing", 2016));
         library.addBook(new Book("9781119552239", "Emily Freeman", "DevOps For Dummies","John Wiley & Sons, Inc.", 2019));
+
         System.out.println("Read " + library.bookList.size() + " books");
+
         library.displayBooks();
 
 
