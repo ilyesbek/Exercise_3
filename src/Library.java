@@ -36,22 +36,13 @@ public class Library {
 
     //Method to get the book from the room
     public Book getAllBooksInRoom(int room) {
-        for(Book book:bookList){
-            if(room == book.getRoom()){
-                return book;
-            }
-        }
-        return null;
+
     }
+
     //Method to get the book by row
     public Book getAllBooksInRow(int room, int row) {
-        for(Book book:bookList){
-            if(room == book.getRoom() && row ==book.getRow()){
-                return book;
-            }
-        }
+        ArrayList<Book> foundBook = new ArrayList<>();
 
-        return null;
     }
 
 

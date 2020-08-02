@@ -17,4 +17,17 @@ public class Room {
     public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
     }
+
+    public ArrayList<Row> getRows(){
+        return rowsList;
+    }
+
+    public Row getRowById(int rowID){
+        for(Row row : rowsList){
+            if(rowID == row.getRowID()){
+                return row;
+            }
+        }
+        return null;
+    }
 }

@@ -14,7 +14,12 @@ public class Row {
         return rowID;
     }
 
+
     public void setRowID(int rowID) {
         this.rowID = rowID;
+    }
+
+    public ArrayList<Integer> getBooks(){
+        return booksISBN;
     }
 }
