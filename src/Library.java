@@ -2,16 +2,21 @@ import java.util.ArrayList;
 
 public class Library {
     private ArrayList<Book> bookList;
+    private ArrayList<Room> roomList;
+
 
     //Constructor
     public Library() {
         this.bookList = new ArrayList<>();
+        this.roomList = new ArrayList<>();
+
     }
 
     //Method for adding the books
     public void addBook(Book book){
         this.bookList.add(book);
     }
+
 
     //Method for displaying the books
     public void displayBooks(){
@@ -60,7 +65,6 @@ public class Library {
         library.addBook(new Book("9781119552239", "Emily Freeman", "DevOps For Dummies","John Wiley & Sons, Inc.", 2019));
 
         System.out.println("Read " + library.bookList.size() + " books");
-        
 
         library.displayBooks();
 
