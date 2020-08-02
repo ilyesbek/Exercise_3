@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class Library {
     private ArrayList<Book> bookList;
     private ArrayList<Room> roomList;
@@ -34,15 +35,29 @@ public class Library {
         return null;
     }
 
-    //Method to get the book from the room
-    public Book getAllBooksInRoom(int room) {
+    //Method to locate rooms by their ID
+    public Room getRoomByID(int roomNumber){
+        for(Room room : roomList){
+            if(roomNumber == room.getRoomNumber()){
+                return room;
+            }
+        }
+        return null;
+    }
 
+    //Method to get the book from the room
+    public boolean getAllBooksInRoom(int roomNumber) {
+        ArrayList<Integer> foundList = new ArrayList<>();
+        Room room = getRoomByID(roomNumber);
+        for (Row row : room.getRows()) {
+            return foundList.addAll(row.getBooks());
+        }
+        return false;
     }
 
     //Method to get the book by row
-    public Book getAllBooksInRow(int room, int row) {
-        ArrayList<Book> foundBook = new ArrayList<>();
-
+    public ArrayList<Integer> getAllBooksInRow(int room, int row) {
+        return  getRoomByID(room).getRowById(row).getBooks();
     }
 
 
@@ -56,8 +71,9 @@ public class Library {
         library.addBook(new Book("9781119552239", "Emily Freeman", "DevOps For Dummies","John Wiley & Sons, Inc.", 2019));
 
         System.out.println("Read " + library.bookList.size() + " books");
-
         library.displayBooks();
+
+
 
 
    }
