@@ -38,12 +38,15 @@ public class Library {
         }
         return null;
     }
-
-    public void getAllBooksInRow(int room, int row) {
+    //Method to get the book by row
+    public Book getAllBooksInRow(int room, int row) {
         for(Book book:bookList){
-
+            if(room == book.getRoom() && row ==book.getRow()){
+                return book;
+            }
         }
 
+        return null;
     }
 
 
@@ -57,6 +60,7 @@ public class Library {
         library.addBook(new Book("9781119552239", "Emily Freeman", "DevOps For Dummies","John Wiley & Sons, Inc.", 2019));
 
         System.out.println("Read " + library.bookList.size() + " books");
+        
 
         library.displayBooks();
 
