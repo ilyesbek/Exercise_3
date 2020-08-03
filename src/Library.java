@@ -14,8 +14,11 @@ public class Library {
     }
 
     //Method for adding the books
-    public void addBook(Book book){
+    public void addBook(Book book, int roomNumber, int rowID){
         this.bookList.add(book);
+        this.getRoomByID(roomNumber).getRowById(rowID).addBook(book.getIsbn());
+
+
     }
 
 
@@ -42,12 +45,15 @@ public class Library {
                 return room;
             }
         }
-        return null;
+        Room room = new Room(roomNumber);
+        roomList.add(room);
+        return room;
+
     }
 
     //Method to get the book from the room
     public boolean getAllBooksInRoom(int roomNumber) {
-        ArrayList<Integer> foundList = new ArrayList<>();
+        ArrayList<String> foundList = new ArrayList<>();
         Room room = getRoomByID(roomNumber);
         for (Row row : room.getRows()) {
             return foundList.addAll(row.getBooks());
@@ -56,7 +62,7 @@ public class Library {
     }
 
     //Method to get the book by row
-    public ArrayList<Integer> getAllBooksInRow(int room, int row) {
+    public ArrayList<String> getAllBooksInRow(int room, int row) {
         return  getRoomByID(room).getRowById(row).getBooks();
     }
 
@@ -64,16 +70,25 @@ public class Library {
 
    public static void main(String[] args) {
 
-        Library library = new Library();
+        try{
 
-        library.addBook(new Book("9780735211308", "James Clear", "Atomic Habits", "Penguin Random House LLC", 2018));
-        library.addBook(new Book("9781455586660", "Cal Newport", "Deep Work: Rules for Focused Success in a Distracted World", "Grand Central Publishing", 2016));
-        library.addBook(new Book("9781119552239", "Emily Freeman", "DevOps For Dummies","John Wiley & Sons, Inc.", 2019));
+            Library library = new Library();
 
-        System.out.println("Read " + library.bookList.size() + " books");
-        library.displayBooks();
+            library.addBook(new Book("9780735211308", "James Clear", "Atomic Habits", "Penguin Random House LLC", 2018));
+            library.addBook(new Book("9781455586660", "Cal Newport", "Deep Work: Rules for Focused Success in a Distracted World", "Grand Central Publishing", 2016));
+            library.addBook(new Book("9781119552239", "Emily Freeman", "DevOps For Dummies","John Wiley & Sons, Inc.", 2019));
+
+            System.out.println("Read " + library.bookList.size() + " books");
+            library.displayBooks();
 
 
+
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
    }

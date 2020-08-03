@@ -2,12 +2,12 @@ import java.util.ArrayList;
 
 public class Row {
     private int rowID;
-    private ArrayList<Integer> booksISBN;
+    private ArrayList<String> booksISBN;
 
 
     public Row(int rowID){
         this.rowID = rowID;
-        this.booksISBN = new ArrayList<>();
+        this.booksISBN = new ArrayList<String>();
     }
 
     public int getRowID() {
@@ -19,7 +19,11 @@ public class Row {
         this.rowID = rowID;
     }
 
-    public ArrayList<Integer> getBooks(){
+    public ArrayList<String> getBooks(){
         return booksISBN;
+    }
+
+    public void addBook(String isbn) {
+        this.booksISBN.add(isbn);
     }
 }

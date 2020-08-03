@@ -28,6 +28,8 @@ public class Room {
                 return row;
             }
         }
-        return null;
+        Row row = new Row(rowID);
+        rowsList.add(row);
+        return row;
     }
 }
