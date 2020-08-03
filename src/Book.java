@@ -4,6 +4,10 @@ public class Book {
     private String title;
     private String publisher;
     private int publicationYear;
+    private int roomNumber;
+    private int rowID;
+
+
 
     //Constructor
     public Book(String isbn, String author,String title, String publisher, int publicationYear)
@@ -13,6 +17,7 @@ public class Book {
         this.title = title;
         this.publisher = publisher;
         this.publicationYear = publicationYear;
+
     }
 
     public String getIsbn() {
@@ -55,6 +60,21 @@ public class Book {
         this.publicationYear = publicationYear;
     }
 
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public int getRowID() {
+        return rowID;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public void setRowID(int rowID) {
+        this.rowID = rowID;
+    }
 
 
     //Displaying the books

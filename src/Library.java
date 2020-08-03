@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import static java.util.Collections.addAll;
+
 
 public class Library {
     private ArrayList<Book> bookList;
@@ -52,13 +54,13 @@ public class Library {
     }
 
     //Method to get the book from the room
-    public boolean getAllBooksInRoom(int roomNumber) {
+    public ArrayList<String> getAllBooksInRoom(int roomNumber) {
         ArrayList<String> foundList = new ArrayList<>();
         Room room = getRoomByID(roomNumber);
         for (Row row : room.getRows()) {
-            return foundList.addAll(row.getBooks());
+            foundList.addAll(row.getBooks());
         }
-        return false;
+        return foundList;
     }
 
     //Method to get the book by row
@@ -74,15 +76,25 @@ public class Library {
 
             Library library = new Library();
 
-            library.addBook(new Book("9780735211308", "James Clear", "Atomic Habits", "Penguin Random House LLC", 2018));
-            library.addBook(new Book("9781455586660", "Cal Newport", "Deep Work: Rules for Focused Success in a Distracted World", "Grand Central Publishing", 2016));
-            library.addBook(new Book("9781119552239", "Emily Freeman", "DevOps For Dummies","John Wiley & Sons, Inc.", 2019));
+
+
+            library.addBook(new Book("9780735211308", "James Clear", "Atomic Habits", "Penguin Random House LLC", 2018), 1, 2);
+            library.addBook(new Book("9781455586660", "Cal Newport", "Deep Work: Rules for Focused Success in a Distracted World", "Grand Central Publishing", 2016),1, 2);
+            library.addBook(new Book("9781119552239", "Emily Freeman", "DevOps For Dummies","John Wiley & Sons, Inc.", 2019),4, 6);
 
             System.out.println("Read " + library.bookList.size() + " books");
             library.displayBooks();
 
+            System.out.println("Books in room 1: ");
+            for(String isbn : library.getAllBooksInRoom(1)){
+                library.getBookByISBN(isbn).display();
 
+            }
 
+            System.out.println("Books in room 4 row 6:");
+            for(String isbn: library.getAllBooksInRow(4, 6)){
+                library.getBookByISBN(isbn).display();
+            }
 
 
 
